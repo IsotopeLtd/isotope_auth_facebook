@@ -52,7 +52,9 @@ class FacebookAuthService extends AuthServiceAdapter {
   }
 
   @override
-  Future<void> signOut() {
+  Future<void> signOut() async {
+    final FacebookLogin facebookLogin = FacebookLogin();
+    await facebookLogin.logOut();
     return _firebaseAuth.signOut();
   }
 
